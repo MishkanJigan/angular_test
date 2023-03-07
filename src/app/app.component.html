@@ -1,0 +1,40 @@
+<h1> Test value : {{stream$ | async }}</h1>
+<h2> Test state: </h2>
+<ul>
+  <li *ngFor="let item of (storeValues$ | async)"> {{item}} </li>
+</ul>
+
+<div class="wrapper">
+  <section>
+    <button (click)="onSubjectClick()"> onSubjectClick </button>
+    <h2>{{subject$ | async}}</h2>
+  </section>
+  <section>
+    <button (click)="onReplySubject()"> onReplySubject </button>
+    <h2>{{replySubject$ | async}}</h2>
+  </section>
+  <section>
+    <button (click)="onBehaviorSubject()"> onBehaviorSubject </button>
+    <h2>{{behaviorSubject$ | async}}</h2>
+  </section>
+</div>
+
+<h2 class="header"> {{'Content' | custom | uppercase}} </h2>
+
+<section class="wrapper">
+  <input type="text" placeholder="value to add"  (keydown.enter)="addStoreValue(input1.value)" #input1>
+</section>
+<section class="wrapper">
+  <input type="text" placeholder="value to remove" (keydown.enter)="removeStoreValue(input2.value)" #input2>
+</section>
+
+<nav>
+  <ul>
+    <li><a routerLink="/child" ariaCurrentWhenActive="page">First Component</a></li>
+    <li><a routerLink="/second-child" ariaCurrentWhenActive="page">Second Component</a></li>
+  </ul>
+</nav>
+
+<div class="routing-wrapper">
+  <router-outlet></router-outlet>
+</div>
